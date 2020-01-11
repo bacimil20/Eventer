@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div class="info mb-5 mt-5">
+
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{ event.name }}</h5>
+    <p>{{ event.organisator.name }} - {{ event.place.name }}</p>
+  </div>
+  <p class="mb-1">Theme: {{ event.theme }}</p>
+  <p class="mb-1">Date start: {{ event.date_start.date() }}</p>
+  <p class="mb-1">Date end: {{ event.date_end.date() }}</p>
+  
+  </div>
+  <h4>Stages</h4>
+  <div class="list-group mb-5">
+  {% for stage in event.stages %}
+
+
+      <div class="list-group-item list-group-item-action mt-2">
+
+        <div class="d-flex w-100 justify-content-between">
+          <h5 class="">{{ stage.name }}</h5>
+        </div>
+        <p class="mb-1">Date start: {{stage.date_start.date()}}</p>
+        <p class="mb-1">Date end: {{stage.date_end.date()}}</p>
+      </a>
+    </div>
+  {% endfor %}
+  </div>
+  <a class="btn btn-primary mb-2" href="/events/{{event.id}}/create_stage" role="button">Create stage</a>
+{% endblock %}
