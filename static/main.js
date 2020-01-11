@@ -31,7 +31,6 @@ $(document).ready(function(){
       $.ajax({
         url: '/events/check_quantity',
         type: 'POST',
-        contentType: 'application/json;charset=UTF-8',
         data: {
           place: $('#placeSelect').val(),
           ticket_quantity: $('#ticketQuantity').val(),
