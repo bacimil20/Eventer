@@ -27,24 +27,33 @@ $(document).ready(function(){
       to_submit = true;
     };
     const self = this;
-    $.ajax({
-      url: '/events/check_quantity',
-      type: 'POST',
-      data: {
-        place: $('#placeSelect').val(),
-        ticket_quantity: $('#ticketQuantity').val(),
-      },
-      success: function(result) {
-        if (to_submit) {
-          $('#ticketQuantity').removeClass('is-invalid')
-          self.submit()
+    if (location.pathname.slice(-5) === 'event') {
+      $.ajax({
+        url: '/events/check_quantity',
+        type: 'POST',
+        contentType: 'application/json;charset=UTF-8',
+        data: {
+          place: $('#placeSelect').val(),
+          ticket_quantity: $('#ticketQuantity').val(),
+        },
+        success: function(result) {
+          if (to_submit) {
+            $('#ticketQuantity').removeClass('is-invalid')
+            self.submit()
+          }
+        },
+        error: function(r) {
+          $('#ticketQuantity').val(' ')
+          $('#ticketQuantity').addClass('is-invalid')
         }
-      },
-      error: function(r) {
-        $('#ticketQuantity').val(' ')
-        $('#ticketQuantity').addClass('is-invalid')
+    });
+    }
+    else {
+      if (to_submit){
+        self.submit()
       }
-  });
+    }
+
 
  });
 
