@@ -27,7 +27,7 @@
     </div>
     <div class="form-group">
       <label for="datepickerStart">Date start</label>
-      <input type="text" class="form-control" name="date_start" id="datepickerStart" placeholder="Enter event start" required>
+      <input type="text" class="form-control" name="date_start" id="datepickerStart" placeholder="Enter event start" data-target="#datepickerStart" required>
     </div>
     <div class="form-group">
       <label for="datepickerEnd">Date end</label>
@@ -37,7 +37,7 @@
       <label for="placeSelect">Places</label>
       <select id="placeSelect" name="place" class="custom-select">
         {% for place in places %}
-          <option value={{ place.id }}>{{ place.name }}</option>
+          <option value={{ place.id }}>{{ place.name }} - {{ place.capacity }}</option>
         {% endfor %}
       </select>
     </div>

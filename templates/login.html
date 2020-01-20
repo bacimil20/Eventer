@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            Неправильный логин или пароль. Попробуйте еще раз.
+        </div>
+    {% endif %}
+    <form action='/login' method="post" class='mt-5 mx-auto w-50'>
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a class="btn btn-success ml-3" href="/register" role="button">Register</a>
+
+    </form>
+{% endblock  %}

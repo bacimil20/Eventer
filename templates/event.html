@@ -21,8 +21,9 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="">{{ stage.name }}</h5>
         </div>
-        <p class="mb-1">Date start: {{stage.date_start.date()}}</p>
-        <p class="mb-1">Date end: {{stage.date_end.date()}}</p>
+        <p class="mb-1">Date: {{stage.date.date()}}</p>
+        <p class="mb-1">Time start: {{stage.time_start}}</p>
+        <p class="mb-1">Time end: {{stage.time_end}}</p>
       </a>
     </div>
   {% endfor %}

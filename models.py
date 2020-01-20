@@ -1,6 +1,9 @@
 from datetime import datetime
+from datetime import time
 from pony.orm import *
+from hashlib import sha512
 
+from flask_login import UserMixin
 
 db = Database()
 
@@ -14,11 +17,20 @@ class Organisator(db.Entity):
     events = Set('Event')
 
 
-class Customer(db.Entity):
+class Customer(UserMixin, db.Entity):
+    id = PrimaryKey(int, auto=True)
     inn = Required(int)
     name = Optional(str)
     phone_number = Optional(str)
     email = Optional(str)
+    password = Optional(str)
+    events = Set('Event')
+
+    def set_password(self, pwd):
+        self.password = sha512(pwd.encode()).hexdigest()
+
+    def check_password(self, pwd):
+        return self.password == sha512(pwd.encode()).hexdigest()
 
 
 class Event(db.Entity):
@@ -31,6 +43,7 @@ class Event(db.Entity):
     place = Required('Place')
     tickets = Set('Ticket')
     stages = Set('Stage')
+    customer = Required('Customer')
 
 
 class Place(db.Entity):
@@ -56,8 +69,9 @@ class Auditory(db.Entity):
 class Stage(db.Entity):
     id = PrimaryKey(int, auto=True)
     name = Optional(str)
-    date_start = Optional(datetime)
-    date_end = Optional(datetime)
+    date = Required(datetime)
+    time_start = Required(time)
+    time_end = Required(time)
     auditory = Required(Auditory)
     event = Required(Event)
     stage_type = Required('StageType')
@@ -84,10 +98,3 @@ class StageType(db.Entity):
     id = PrimaryKey(int, auto=True)
     name = Optional(str)
     stages = Set(Stage)
-
-
-class Perfomance(db.Entity):
-    id = PrimaryKey(int, auto=True)
-    name = Optional(str)
-    type = Optional(str)
-    speaker_number = Optional(int)
