@@ -6,12 +6,12 @@
     <h5 class="mb-1">{{ event.name }}</h5>
     <p>{{ event.organisator.name }} - {{ event.place.name }}</p>
   </div>
-  <p class="mb-1">Theme: {{ event.theme }}</p>
-  <p class="mb-1">Date start: {{ event.date_start.date() }}</p>
-  <p class="mb-1">Date end: {{ event.date_end.date() }}</p>
-  
+  <p class="mb-1">Тема: {{ event.theme }}</p>
+  <p class="mb-1">Дата начала: {{ event.date_start.date() }}</p>
+  <p class="mb-1">Дата окончания: {{ event.date_end.date() }}</p>
+
   </div>
-  <h4>Stages</h4>
+  <h4>Этапы</h4>
   <div class="list-group mb-5">
   {% for stage in event.stages %}
 
@@ -21,12 +21,12 @@
         <div class="d-flex w-100 justify-content-between">
           <h5 class="">{{ stage.name }}</h5>
         </div>
-        <p class="mb-1">Date: {{stage.date.date()}}</p>
-        <p class="mb-1">Time start: {{stage.time_start}}</p>
-        <p class="mb-1">Time end: {{stage.time_end}}</p>
+        <p class="mb-1">Дата: {{stage.date.date()}}</p>
+        <p class="mb-1">Время начала: {{stage.time_start}}</p>
+        <p class="mb-1">Время окончания: {{stage.time_end}}</p>
       </a>
     </div>
   {% endfor %}
   </div>
-  <a class="btn btn-primary mb-2" href="/events/{{event.id}}/create_stage" role="button">Create stage</a>
+  <a class="btn btn-primary mb-2" href="/events/{{event.id}}/create_stage" role="button">Добавить этап</a>
 {% endblock %}

@@ -3,23 +3,23 @@
   <form action="/stages" method="post">
 
     <div class="form-group">
-      <label for="nameInput">Name</label>
-      <input type="text" class="form-control" name="name" id="nameInput" placeholder="Enter name" required>
+      <label for="nameInput">Название этапа</label>
+      <input type="text" class="form-control" name="name" id="nameInput" placeholder="Укажите название" required>
     </div>
     <div class="form-group">
-      <label for="datepickerStart">Date</label>
-      <input type="text" class="form-control" name="date" id="datepickerStart" placeholder="Enter date start" required>
+      <label for="datepickerStart">Дата начала</label>
+      <input type="text" class="form-control" name="date" id="datepickerStart" placeholder="Укажите дату" required>
     </div>
     <div class="form-group">
-      <label for="timepickerStart">Time start</label>
-      <input type="text" class="form-control" name="time_start" id="timepickerStart" placeholder="Enter time start" required>
+      <label for="timepickerStart">Время начала</label>
+      <input type="text" class="form-control" name="time_start" id="timepickerStart" placeholder="Укажите время начала" required>
     </div>
     <div class="form-group">
-      <label for="timepickerEnd">Time end</label>
-      <input type="text" class="form-control" name="time_end" id="timepickerEnd" placeholder="Enter time end" required>
+      <label for="timepickerEnd">Время окончания</label>
+      <input type="text" class="form-control" name="time_end" id="timepickerEnd" placeholder="Укажите дату окончания" required>
     </div>
     <div class="form-group">
-      <label for="auditorySelect">Auditory</label>
+      <label for="auditorySelect">Аудитория</label>
       <select id="auditorySelect" name="auditory" class="custom-select">
         {% for auditory in auditories %}
           <option value={{ auditory.id }}>{{ auditory.place.name }}-{{auditory.number}}</option>
@@ -27,7 +27,7 @@
       </select>
     </div>
     <div class="form-group">
-      <label for="stageTypeSelect">Stage Type</label>
+      <label for="stageTypeSelect">Тип этапа</label>
       <select id="stageTypeSelect" name="stage_type" class="custom-select">
         {% for st in stage_types %}
           <option value={{ st.id }}>{{ st.name }}</option>
@@ -36,8 +36,8 @@
     </div>
     <input hidden type="text" name="event" value="{{ event.id }}">
     <div>
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <a class="btn btn-danger pull-right" href="/events/{{event.id}}" role="button">Cancel</a>
+      <button type="submit" class="btn btn-primary">Далее</button>
+      <a class="btn btn-danger pull-right" href="/events/{{event.id}}" role="button">Назад</a>
     </div>
     
   </form>

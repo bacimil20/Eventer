@@ -2,7 +2,7 @@
 {% block content %}
   <form action="/events" method="post">
     <div class="form-group">
-      <label for="organisatorSelect">Organisator</label>
+      <label for="organisatorSelect">Организатор</label>
       <select id="organisatorSelect" name="organisator" class="custom-select">
         {% for org in organisators %}
           <option value={{ org.id }}>{{ org.name }}</option>
@@ -10,31 +10,31 @@
       </select> 
     </div>
     <div class="form-group">
-      <label for="nameInput">Name</label>
-      <input type="text" class="form-control" name="name" id="nameInput" placeholder="Enter name" required>
+      <label for="nameInput">Название мероприятия</label>
+      <input type="text" class="form-control" name="name" id="nameInput" placeholder="Укажите название" required>
     </div>
     <div class="form-group">
-      <label for="themeInput">Theme</label>
-      <input type="text" class="form-control" name="theme" id="themeInput" placeholder="Enter theme" required>
+      <label for="themeInput">Тема мероприятия</label>
+      <input type="text" class="form-control" name="theme" id="themeInput" placeholder="Укажите тему" required>
     </div>
     <div class="form-group">
-      <label for="ticketCost">Ticket cost</label>
-      <input type="number" class="form-control" name="ticket_cost" id="ticketCost" placeholder="Enter ticket cost" required>
+      <label for="ticketCost">Стоимость билетов</label>
+      <input type="number" class="form-control" name="ticket_cost" id="ticketCost" placeholder="Укажите стоимость билетов" required>
     </div>
     <div class="form-group">
-      <label for="ticketQuantity">Tickets quantity</label>
-      <input type="number" class="form-control" name="tickets_quantity" id="ticketQuantity" placeholder="Enter tickets quantity" required>
+      <label for="ticketQuantity">Количество билетов</label>
+      <input type="number" class="form-control" name="tickets_quantity" id="ticketQuantity" placeholder="Укажите количество" required>
     </div>
     <div class="form-group">
-      <label for="datepickerStart">Date start</label>
-      <input type="text" class="form-control" name="date_start" id="datepickerStart" placeholder="Enter event start" data-target="#datepickerStart" required>
+      <label for="datepickerStart">Дата начала</label>
+      <input type="text" class="form-control" name="date_start" id="datepickerStart" placeholder="Укажите дату" data-target="#datepickerStart" required>
     </div>
     <div class="form-group">
-      <label for="datepickerEnd">Date end</label>
-      <input type="text" class="form-control" name="date_end" id="datepickerEnd" placeholder="Enter event end" required>
+      <label for="datepickerEnd">Дата окончания</label>
+      <input type="text" class="form-control" name="date_end" id="datepickerEnd" placeholder="Укажите дату" required>
     </div>
     <div class="form-group">
-      <label for="placeSelect">Places</label>
+      <label for="placeSelect">Место проведения</label>
       <select id="placeSelect" name="place" class="custom-select">
         {% for place in places %}
           <option value={{ place.id }}>{{ place.name }} - {{ place.capacity }}</option>
@@ -43,8 +43,8 @@
     </div>
     <div >
 
-      <button type="submit" class="btn btn-primary">Submit</button>
-      <a class="btn btn-danger pull-right" href="/" role="button">Cancel</a>
+      <button type="submit" class="btn btn-primary">Далее</button>
+      <a class="btn btn-danger pull-right" href="/" role="button">Назад</a>
     </div>
     
   </form>

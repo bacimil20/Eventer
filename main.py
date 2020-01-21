@@ -57,6 +57,7 @@ def generate_db_data():
         db.Auditory(number=1001, capacity=128, place=place_morskaya)
         db.Auditory(number=11, capacity=256, place=place_morskaya)
 
+
 db.bind(provider='sqlite', filename='database.sqlite', create_db=True)
 db.generate_mapping(create_tables=True)
 

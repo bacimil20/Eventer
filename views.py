@@ -149,6 +149,18 @@ def check_quantity():
 @db_session
 def create_customer():
     data = dict(request.form)
+    errors = []
+    customer = db.Customer.get(email=data['email'])
+    if customer:
+        errors.append('Пользователь с таким email уже существует')
+    customer = db.Customer.get(inn=data['inn'])
+    if customer:
+        errors.append('Пользователь с таким ИНН уже существует')
+    customer = db.Customer.get(phone_number=data['phone_number'])
+    if customer:
+        errors.append('Пользователь с таким номером телефона уже существует')
+    if errors:
+        return render_template('register.html', errors=errors)
     customer = db.Customer(**data)
     customer.set_password(data['password'])
     commit()
@@ -158,4 +170,4 @@ def create_customer():
 
 @app.route('/register')
 def register():
-    return render_template('register.html')
+    return render_template('register.html', errors=[])

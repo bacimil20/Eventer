@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <div class="list-header">
-  <a class="btn btn-primary mb-2" href="/create_event" role="button">Create event</a>
+  <a class="btn btn-primary mb-2" href="/create_event" role="button">Создать мероприятие</a>
 </div>
   <div class="list-group">
   {% for event in events %}
@@ -12,9 +12,9 @@
           <p>{{ event.organisator.name }} - {{ event.place.name }}</p>
           <button data-id="{{event.id}}" class="btn btn-delete btn-danger">X</button>
         </div>
-        <p class="mb-1">Theme: {{ event.theme }}</p>
-        <p class="mb-1">Date start: {{ event.date_start.date() }}</p>
-        <p class="mb-1">Date end: {{ event.date_end.date() }}</p>
+        <p class="mb-1">Тема: {{ event.theme }}</p>
+        <p class="mb-1">Дата начала: {{ event.date_start.date() }}</p>
+        <p class="mb-1">Дата окончания: {{ event.date_end.date() }}</p>
       </a>
     </div>
   {% endfor %}

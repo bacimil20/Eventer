@@ -27,11 +27,11 @@
     <div class="header my-3">
       <ul class="nav nav-pills">
         <li class="nav-item">
-          <a class="nav-link border rounded" href="/">Home</a>
+          <a class="nav-link border rounded" href="/">Главная страница</a>
         </li>
         {% if current_user.is_authenticated %}
           <li class="nav-item mr-0">
-            <a class="nav-link border rounded" href="{{ url_for('logout') }}">Logout</a>
+            <a class="nav-link border rounded" href="{{ url_for('logout') }}">Выход</a>
           </li>
         {% endif %}
       </ul>
