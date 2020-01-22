@@ -125,9 +125,6 @@ def event(event_id):
     else:
         return render_template('event.html', event=event)
 
-
-
-
 @app.route('/events/<event_id>/create_stage')
 @login_required
 def create_stage(event_id):
