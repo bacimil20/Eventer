@@ -120,7 +120,12 @@ def stage_create():
 @login_required
 def event(event_id):
     event = db.Event[event_id]
-    return render_template('event.html', event=event)
+    if current_user != event.customer:
+        return redirect('/')
+    else:
+        return render_template('event.html', event=event)
+
+
 
 
 @app.route('/events/<event_id>/create_stage')
